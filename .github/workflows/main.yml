@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: 'Automated Pull Request from Feature Branch'
-          body: 'This pull request is automatically generated from the feature branch.'
-          base: main
-          head: ${{ github.ref_name }}  # プッシュされたブランチ名
+          title: "Automated Pull Request from Feature Branch"
+          body: "This pull request is automatically generated from the feature branch."
+          base: main # プルリクエストをマージする先のブランチ
+          branch: ${{ github.ref_name }} # プッシュされたブランチ名
