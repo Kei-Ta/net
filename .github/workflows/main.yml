@@ -3,7 +3,7 @@ name: Create Pull Request
 on:
   push:
     branches:
-      - feature
+      - feature/*
 
 jobs:
   create-pull-request:
@@ -16,8 +16,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: 'Automated Pull Request from Feature Branch'
           body: 'This pull request is automatically generated from the feature branch.'
-          base: main  # プルリクエストをマージする先のブランチ
-          head: ${{ github.ref }}  # プッシュされたブランチ
+          base: main
+          head: ${{ github.ref_name }}  # プッシュされたブランチ名
