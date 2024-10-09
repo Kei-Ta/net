@@ -3,7 +3,7 @@ name: Create Pull Request
 on:
   push:
     branches:
-      - feature/*  # 'feature/'プレフィックスのブランチに対するプッシュイベントをトリガー
+      - feature
 
 jobs:
   create-pull-request:
