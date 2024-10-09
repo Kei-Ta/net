@@ -87,6 +87,7 @@ func ParseEthernetFrame(data []byte, output bool) (*EthernetFrame, error) {
 }
 
 // IPフレームを解析する関数
+// Parameters
 func ParseIpFrame(data []byte, output bool) (*IpFrame, error) {
 	//Frameの大きさを検証する処理
 
