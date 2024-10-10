@@ -1,5 +1,5 @@
 # 自作ネットワーク
-
+golangを使用し、NW関連のコマンドを自作しています。
 # 機能
 - パケットキャプチャ
     go run main.go capture
