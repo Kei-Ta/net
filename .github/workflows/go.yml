@@ -5,7 +5,7 @@ name: Go
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
     branches: [ "main" ]
 
@@ -26,3 +26,13 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      
+    - name: Create Pull Request
+      if: success()
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref_name }}  # テストが成功したブランチを指定
+        base: main  # プルリクエストのターゲットブランチ
+        title: 'Automatically created pull request'
+        body: 'This PR was created automatically because tests passed.'
